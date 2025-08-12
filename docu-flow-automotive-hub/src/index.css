@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Industrial Design System for Sakthi Auto */
+
+@layer base {
+  :root {
+    /* Core Background & Foreground */
+    --background: 250 10% 98%;
+    --foreground: 220 15% 15%;
+
+    /* Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    --card-hover: 220 10% 96%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    /* Primary - Industrial Blue */
+    --primary: 218 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 218 85% 40%;
+    --primary-light: 218 85% 92%;
+
+    /* Secondary - Professional Gray */
+    --secondary: 220 10% 96%;
+    --secondary-foreground: 220 15% 25%;
+    --secondary-hover: 220 10% 92%;
+
+    /* Muted */
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 8% 55%;
+
+    /* Accent - Success Green */
+    --accent: 142 85% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 142 85% 92%;
+
+    /* Status Colors */
+    --success: 142 85% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 95% 55%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --info: 210 85% 55%;
+    --info-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 218 85% 45%;
+
+    /* Sidebar */
+    --sidebar-background: 220 20% 18%;
+    --sidebar-foreground: 220 10% 85%;
+    --sidebar-primary: 218 85% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 25%;
+    --sidebar-accent-foreground: 220 10% 85%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 218 85% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(218 85% 35%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(142 85% 40%));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(220 10% 98%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 15% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 15% 15% / 0.1), 0 2px 4px -1px hsl(220 15% 15% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(220 15% 15% / 0.1), 0 4px 6px -2px hsl(220 15% 15% / 0.05);
+    --shadow-card: 0 1px 3px 0 hsl(220 15% 15% / 0.1), 0 1px 2px 0 hsl(220 15% 15% / 0.06);
+
+    /* Animations */
+    --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+  }
+
+  .dark {
+    /* Dark theme for night shifts */
+    --background: 220 20% 12%;
+    --foreground: 220 10% 90%;
+
+    --card: 220 20% 15%;
+    --card-foreground: 220 10% 90%;
+    --card-hover: 220 20% 18%;
+
+    --popover: 220 20% 15%;
+    --popover-foreground: 220 10% 90%;
+
+    --primary: 218 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 218 85% 50%;
+    --primary-light: 218 85% 20%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 220 10% 85%;
+    --secondary-hover: 220 15% 25%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 8% 60%;
+
+    --accent: 142 85% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 142 85% 20%;
+
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 218 85% 55%;
+
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 220 10% 80%;
+    --sidebar-primary: 218 85% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 220 10% 80%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 218 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Custom scrollbar for professional look */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Status indicator styles */
+  .status-dot {
+    @apply inline-block w-2 h-2 rounded-full;
+  }
+
+  .status-submitted {
+    @apply bg-info;
+  }
+
+  .status-approved {
+    @apply bg-success;
+  }
+
+  .status-pending {
+    @apply bg-warning;
+  }
+
+  .status-rejected {
+    @apply bg-destructive;
+  }
+
+  .status-draft {
+    @apply bg-muted-foreground;
+  }
+
+  /* Card hover effects */
+  .card-interactive {
+    @apply transition-all duration-200 hover:shadow-md hover:bg-card-hover cursor-pointer;
+  }
+
+  /* Professional form inputs */
+  .form-input {
+    @apply w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-200;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-hover text-secondary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-200 border border-border;
+  }
+
+  .btn-success {
+    @apply bg-success hover:bg-success/90 text-success-foreground px-6 py-3 rounded-lg font-medium transition-all duration-200 shadow-sm;
+  }
+
+  .btn-warning {
+    @apply bg-warning hover:bg-warning/90 text-warning-foreground px-6 py-3 rounded-lg font-medium transition-all duration-200 shadow-sm;
+  }
+
+  /* Navigation active states */
+  .nav-active {
+    @apply bg-sidebar-accent text-sidebar-accent-foreground border-r-2 border-sidebar-primary;
+  }
+
+  /* Professional card styles */
+  .professional-card {
+    @apply bg-card border border-border rounded-xl p-6 shadow-card transition-all duration-200;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /* Login page animations */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
